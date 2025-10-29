@@ -258,6 +258,66 @@ git remote add <リモート名> <リモートURL>
 
 </details>
 
+<details><summary>おまけ</summary>
+
+ブランチ操作で遊んでいたらgit側から怒られました。その時のエラーや対処の諸々を下記に記しておきます。
+最終的に過去のコミット時点に戻すことで無理やり突破しましたが、コミット時点を使用して戻す際の参考にどうぞ。
+
+### 起きたこと
+`main`内にsubブランチ作成して適当なファイルを入れて動作の確認をしていたところ、`git push`でエラーを吐くようになりました。
+
+```
+$ >git push origin main
+
+To https://github.com/<ユーザ名>/<ブランチ名>.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/Yusuke-0419/practicum-repo.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+リモートリポジトリにローカルにないファイルがある、原因は～（略）と書いている。
+とりあえず`git pull`してみろ的なことが書いてあるので実行>ステージングしてコミットを行ったができない。
+`git status`のログは以下。
+
+```
+$ >git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        practicum-repo/
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+ネットで調べたが有力そうな過去のコミットを参照して戻す方法を試しました。
+今回は`git reset`を用いて実行した。バージョンを戻すコマンドはいくつかある様だが、
+使い分けは下記リンクを参照。
+
+参考）[Gitバージョンの戻し方 - 3つのコマンドと使い分け](https://zenn.dev/yutabeee/articles/034fb9383f441c)
+
+```
+$ >git push origin main
+To https://github.com/<ユーザ名>/<リポジトリ名>.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/<ユーザ名>/<リポジトリ名>.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+ということで怒られたわけですが、エラーの内容が異なります。色々調べましたが、どうやらGitのバージョンを戻す場合、リポジトリの履歴が一致しないため反映ができないとのこと。そこで先述のサイトにたどり着き、`git push origin <ブランチ名> --force`で無理やりpushしたながれになります。
+
+ちなみに` ! [rejected]        main -> main (non-fast-forward)`で検索すると分岐ブランチを設定してクリアしているページなども見つかりましたがうまくいきませんでした。
+
+</details>
+
+
+
 ---
 
 <details><summary>備忘録</summary>
