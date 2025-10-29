@@ -6,8 +6,9 @@
 
 また、それぞれのチケットごとにまとめるが、寄り道した関係上次のチケットの内容を先取りする形で入力している場合があることに理解されたい。
 
-# \#1432 ローカルリポジトリ作成
+<details><summary>#1432 ローカルリポジトリ作成</summary>
 
+# ^#1432 ローカルリポジトリ作成
 ## git init
 
 ローカルリポジトリを作成する際に入力するコマンド。現在のディレクトリに.gitという隠しフォルダが作成される。
@@ -59,8 +60,11 @@ mainから変更を拾って現在のブランチに適用させる。`git fetch
 ```
 git pull original main
 ```
+</details>
 
-# \#1433 コミット
+<details><summary>#1433 コミット</summary>
+
+# ^#1433 コミット
 
 ## git status
 
@@ -88,8 +92,11 @@ git commit -m "comment"
 ```
 git log
 ```
+</details>
 
-# \#1434 ファイルを元に戻す
+<details><summary>#1434 ファイルを元に戻す</summary>
+
+  # ^#1434 ファイルを元に戻す
 
 `git status`と`git log`に追記した。
 今回行ったのは、ローカルとローカルリポジトリでのファイル削除および復活。
@@ -136,7 +143,11 @@ git remote -v
 ```
 ---
 
-# \#1435 ブランチ
+</details>
+
+<details><summary>#1435 ブランチ</summary>
+
+# ^#1435 ブランチ
 
 ## git branch
 
@@ -174,7 +185,11 @@ git branch -m <現在のブランチ名> <新しいブランチ名>
 ```
 git ls-tree <ブランチ名>
 ```
-# \#1436 マージ
+</details>
+
+<details><summary>#1436 マージ</summary>
+
+# ^#1436 マージ
 
 ## git merge
 
@@ -184,11 +199,68 @@ git ls-tree <ブランチ名>
 git merge <ブランチ名>
 ```
 
+</details>
 
+<details><summary>#1437 コンフリクト</summary>
 
+# ^#1437 コンフリクト
+
+いわゆるかち合った状態の練習。featureとmainのブランチでそれぞれmain.cに書き込み、わざとコンフリクトを起こさせる。
+
+（参考）コンフリクトが起こった時のログ
+```
+Auto-merging main.c
+CONFLICT (content): Merge conflict in main.c
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+コメント）今回新規でコンフリクト解消後、手動でfeatureブランチを削除したがこれで正しい手順なのか。
+また、今回新たに使用したコマンドはなし。
+
+</details>
+
+<details><summary>#1438 ブランチ/ ^#1439 クローン</summary>
+
+# ^#1438 フォーク/ ^#1439 クローン
+
+クローンとフォークは異なる作業である。大きな違いとしては以下。詳細はご自分で。
+
+- クローンはローカルにコピーする作業であり、親リポジトリの変更は反映されない
+- フォークは親リポジトリの所有者に通知される
+
+## git clone
+
+リポジトリを新たなディレクトリに複製するコマンド。
+
+```
+git clone <URL>
+```
+
+## git remote
+
+リモートリポジトリを表示するコマンド。`-v`オプションで、URLも表示できる。
+
+```
+git remote -v
+```
+
+## git remote add
+
+リモートの追加を行うコマンド。
+親リポジトリの情報が思うように得られなかったため、手動で設定した。
+`<リモート名>`には`origin`か`upstream`が一般的らしい。
+
+```
+git remote add <リモート名> <リモートURL>
+```
+
+コメ）ほぼ手動で行う作業で相違ないですか？
+
+</details>
 
 ---
-# 備忘録
+
+<details><summary>備忘録</summary>
 
 以下にコマンドプロンプトにて使用したコマンドを備忘録的に掲示しておく。
 
@@ -220,4 +292,6 @@ git merge <ブランチ名>
 ## cls
 
 ログの掃除。
+
+</details>
 
