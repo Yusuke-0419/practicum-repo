@@ -219,7 +219,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 </details>
 
-<details><summary>#1438 ブランチ/ ^#1439 クローン</summary>
+<details><summary>#1438 ブランチ/ #1439 クローン</summary>
 
 # ^#1438 フォーク/ ^#1439 クローン
 
