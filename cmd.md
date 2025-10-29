@@ -8,7 +8,7 @@
 
 <details><summary>#1432 ローカルリポジトリ作成</summary>
 
-# ^#1432 ローカルリポジトリ作成
+# \#1432 ローカルリポジトリ作成
 ## git init
 
 ローカルリポジトリを作成する際に入力するコマンド。現在のディレクトリに.gitという隠しフォルダが作成される。
@@ -64,7 +64,7 @@ git pull original main
 
 <details><summary>#1433 コミット</summary>
 
-# ^#1433 コミット
+# \#1433 コミット
 
 ## git status
 
@@ -96,7 +96,7 @@ git log
 
 <details><summary>#1434 ファイルを元に戻す</summary>
 
-  # ^#1434 ファイルを元に戻す
+  # \#1434 ファイルを元に戻す
 
 `git status`と`git log`に追記した。
 今回行ったのは、ローカルとローカルリポジトリでのファイル削除および復活。
@@ -147,7 +147,7 @@ git remote -v
 
 <details><summary>#1435 ブランチ</summary>
 
-# ^#1435 ブランチ
+# \#1435 ブランチ
 
 ## git branch
 
@@ -189,7 +189,7 @@ git ls-tree <ブランチ名>
 
 <details><summary>#1436 マージ</summary>
 
-# ^#1436 マージ
+# \#1436 マージ
 
 ## git merge
 
@@ -203,7 +203,7 @@ git merge <ブランチ名>
 
 <details><summary>#1437 コンフリクト</summary>
 
-# ^#1437 コンフリクト
+# \#1437 コンフリクト
 
 いわゆるかち合った状態の練習。featureとmainのブランチでそれぞれmain.cに書き込み、わざとコンフリクトを起こさせる。
 
@@ -221,7 +221,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 <details><summary>#1438 ブランチ/ #1439 クローン</summary>
 
-# ^#1438 フォーク/ ^#1439 クローン
+# \#1438 フォーク/ \#1439 クローン
 
 クローンとフォークは異なる作業である。大きな違いとしては以下。詳細はご自分で。
 
