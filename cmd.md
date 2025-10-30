@@ -399,10 +399,6 @@
 
 &nbsp;  
 &nbsp;  
-&nbsp;  
-&nbsp;  
-&nbsp;  
-&nbsp;  
 
 <details><summary>おまけ</summary>
 
