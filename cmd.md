@@ -63,32 +63,15 @@
 
 ### "Z:\実習\git"にローカルリポジトリを作成する
 
-コマンドプロンプトを起動する。
-特に設定しなければ'C:\Users\<ユーザ名>'にいるはずなので、まずZドライブに移動する。
-ドライブ間を移動する場合は`/d`オプションを指定する必要がある。
+Zドライブに移動し、フォルダ、リポジトリの作成をする。
 
 ```
->cd /d Z:
-```
-
-つぎに、実習ディレクトリを作成し、移動する。
-
-```
->mkdir "実習" #実習ディレクトリの作成
->cd 実習 #実習ディレクトリに移動
-```
-
-同様にして、gitディレクトリを作成し移動する。
-
-```
->mkdir git  
->cd ./git #./とすると今いるディレクトリを参照する
-```
-
-ローカルリポジトリの作成を行う。
-
-```
->git init
+>cd /d Z:\    #Zドライブに移動する
+>mkdir "実習"   #実習ディレクトリの作成
+>cd 実習    #実習ディレクトリに移動
+>mkdir git    #gitディレクトリ
+>cd ./git   #./とすると今いるディレクトリを参照する
+>git init   #リポジトリの作成
 ```
 
 [ローカルリポジトリー作成 へ](#ローカルリポジトリー作成)
@@ -107,11 +90,11 @@ nothing to commit (create/copy files and use "git add" to track)
 ```
 
 上記のようなログが表示されていれば問題ない。  
-.gitがない（`git init`が失敗した）場合、下記のようなログが表示される。
+<!-- .gitがない（`git init`が失敗した）場合、下記のようなログが表示される。
 
 ```
 Initialized empty Git repository in <address>
-```
+``` -->
 
 [ローカルリポジトリー作成 へ](#ローカルリポジトリー作成)
 
@@ -148,7 +131,7 @@ main.cファイルを作成し開く。
 
 ### "main.c"をインデックスに追加する
 
-インデックスに追加する作業をステージングという。ステージングには`git add`コマンドを利用する。
+インデックスに追加する作業をステージングといい、下記コマンドで行う。
 
 ```
 >git add main.c
@@ -163,7 +146,7 @@ main.cファイルを作成し開く。
 ```
 >git status
 ```
-
+<!-- 
 実行すると、下記のようなログが出力される。
 
 ```
@@ -179,7 +162,7 @@ Changes to be committed:
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
         cmd.md
-```
+``` -->
 
 [コミット へ](#コミット)
 
@@ -259,7 +242,7 @@ subフォルダに移動し、sub.hファイルを作成して開く。
 変更したファイルも追加と同様、`git add`をつかう。
 
 ```
->git add main.c sub #複数のファイル/フォルダを同時にステージング
+>git add main.c sub/sub.h sub/sub.c #複数のファイル/フォルダを同時にステージング
 >git status
 ```
 
@@ -309,9 +292,7 @@ subフォルダに移動し、sub.hファイルを作成して開く。
 
 ```
 >git rm main.c
-
 ```
-
 
 [ファイルを元に戻す へ](#ファイルを元に戻す)
 
@@ -333,8 +314,8 @@ subフォルダに移動し、sub.hファイルを作成して開く。
 復活したいmain.cの存在するコミットを特定する必要がある。
 
 ```
->git log --oneline  #一行で簡潔に表示
->git log --stat #ファイルの変更や追加などの情報がわかる
+>git log --oneline    #一行で簡潔に表示
+>git log --stat    #ファイルの変更や追加などの情報がわかる
 ```
 
 `--oneline`でコメント内容から特定できなかった場合に`--stat`を使うとよいだろう
@@ -368,11 +349,10 @@ subフォルダに移動し、sub.hファイルを作成して開く。
 
 ### "hoge"ブランチに切り替える
 
-ブランチの移動には`git checkout`と`git seitch`がある。個人的には後者が好み。
+ブランチの移動には`git checkout`と`git seitch`がある。
 
 ```
->git checkout hoge
->git switch hoge  #どちらかを実行
+>git switch hoge    #どちらかを実行
 ```
 
 [ブランチ へ](#ブランチ)
@@ -421,7 +401,7 @@ subフォルダに移動し、sub.hファイルを作成して開く。
 ブランチ名の変更を行う。
 
 ```
->git branch -m hoge feature #hogeブランチにいるのでhogeは省略可
+>git branch -m hoge feature    #hogeブランチにいるのでhogeは省略可
 >git branch
 ```
 
@@ -446,7 +426,7 @@ mainブランチに切り替え、確認する。
 
 ```
 >git ls-tree main
->git ls-tree feature  #ついでにfeatureと比較
+>git ls-tree feature    #ついでにfeatureと比較
 ```
 
 `>git ls-tree main`にtest.txtが存在しなければ終了。
@@ -633,8 +613,8 @@ Automatic merge failed; fix conflicts and then commit the result.
 "Z:\実習"フォルダに移動する。
 
 ```
->cd /d Z:/実習  #絶対パスでの指定
->cd ..  #Z:/実習/gitにいる場合の相対パス指定
+>cd /d Z:/実習    #絶対パスでの指定
+>cd ..            #Z:/実習/gitにいる場合の相対パス指定
 ```
 
 "github"フォルダを作成する。
@@ -673,8 +653,8 @@ Automatic merge failed; fix conflicts and then commit the result.
 `Z:/実習/github/git-exercises`フォルダへ移動する。
 
 ```
->cd /d Z:/実習/github/git-exercises  #絶対パスでの指定
->cd git-exercises  #Z:/実習/githubにいる場合
+>cd /d Z:/実習/github/git-exercises    #絶対パスでの指定
+>cd git-exercises                      #Z:/実習/githubにいる場合
 ```
 
 自身の名前のブランチを作成し、切り替える。
